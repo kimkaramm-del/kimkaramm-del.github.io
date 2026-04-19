@@ -427,14 +427,12 @@ function applyFilters() {
   }, 140);
 }
 
-const API_URL = "https://store-api-jjjm.onrender.com/products";
-
-fetch(API_URL)
+fetch("https://store-api-jjjm.onrender.com/products")
   .then(res => res.json())
   .then(data => {
-    allProducts = data;
-    displayProducts(allProducts);
-  })
+    console.log(data);
+    document.body.innerHTML = JSON.stringify(data);
+  });
   .catch((err) => {
     document.getElementById("products").innerHTML =
       `<div class="no-results">ERROR: ${err}</div>`;  });
